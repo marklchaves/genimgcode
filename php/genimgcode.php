@@ -28,11 +28,22 @@ li{
 </style>
 </head>
 
+<?php
+function convert_filename_alt_title($str)
+{ 
+	// Convert the filename to an alt and title.
+	// Replace hyphens with a space.
+	$altstr = preg_replace('"-"', ' ', $str);
+	// Remove the file extension.
+	$altstr = preg_replace('"\.(jpg|jpeg|png|gif|svg)$"', '', $altstr);
+	return $altstr;
 
+}
+?>
 
 <body>
 <section id="code">
-	<h2>Code</h2>
+	<h2>Liquid Front Matter</h2>
 	<?php
 		$dirname2 = "wp-content/uploads/2020/01/";
 		$assetsdir = "/assets/images/bali/";
@@ -42,10 +53,14 @@ li{
 		foreach($images2 as $curimg2){
 			if(!in_array($curimg2, $ignore2)) {
 				// Convert the filename to an alt and title.
+				/*
 				// Replace hyphens with a space.
 				$altstr = preg_replace('"-"', ' ', $curimg2);
 				// Remove the file extension.
 				$altstr = preg_replace('"\.(jpg|jpeg|png|gif|svg)$"', '', $altstr);
+				$title = $altstr;
+				*/
+				$altstr = convert_filename_alt_title($curimg2);
 				$title = $altstr;
 				
 				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"$altstr\"\n    title: \"$title\"\n";
@@ -58,6 +73,7 @@ li{
 <hr>
 <section id="images">
 <h2>Images</h2>
+<p>View source to get HTML code.</p>
 <ul>
 	<?php
 		$dirname = "wp-content/uploads/2020/01/";
@@ -65,7 +81,10 @@ li{
 		$ignore = array(".", "..");
 		foreach($images as $curimg){
 			if(!in_array($curimg, $ignore)) {
-				echo "\n\t<li><a href=\"$dirname$curimg\"><img src='$dirname$curimg' alt='$curimg' /></a></li>";
+
+				$altstr = convert_filename_alt_title($curimg);
+				$title = $altstr;
+				echo "\n\t<li><a href=\"$dirname$curimg\"><img src='$dirname$curimg' alt='$altstr' title='$title' /></a></li>";
 			}
 		} 
 		echo "\n\n"; 
