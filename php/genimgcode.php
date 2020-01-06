@@ -25,7 +25,11 @@ li{
 	float:left;
 }
 -->
-</style></head>
+</style>
+</head>
+
+
+
 <body>
 <section id="code">
 	<h2>Code</h2>
@@ -37,7 +41,14 @@ li{
 		echo "<pre>\n";
 		foreach($images2 as $curimg2){
 			if(!in_array($curimg2, $ignore2)) {
-				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"$curimg2\"\n    title: \"$curimg2\"\n";
+				// Convert the filename to an alt and title.
+				// Replace hyphens with a space.
+				$altstr = preg_replace('"-"', ' ', $curimg2);
+				// Remove the file extension.
+				$altstr = preg_replace('"\.(jpg|jpeg|png|gif|svg)$"', '', $altstr);
+				$title = $altstr;
+				
+				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"$altstr\"\n    title: \"$title\"\n";
 			}
 		} 
 		echo "</pre>\n";
