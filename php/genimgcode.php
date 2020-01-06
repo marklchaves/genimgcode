@@ -42,7 +42,7 @@ function convert_filename_alt_title($str)
 ?>
 
 <body>
-<section id="code">
+<section id="liquid">
 	<h2>Liquid Front Matter</h2>
 	<?php
 		$dirname2 = "wp-content/uploads/2020/01/";
@@ -52,18 +52,10 @@ function convert_filename_alt_title($str)
 		echo "<pre>\n";
 		foreach($images2 as $curimg2){
 			if(!in_array($curimg2, $ignore2)) {
-				// Convert the filename to an alt and title.
-				/*
-				// Replace hyphens with a space.
-				$altstr = preg_replace('"-"', ' ', $curimg2);
-				// Remove the file extension.
-				$altstr = preg_replace('"\.(jpg|jpeg|png|gif|svg)$"', '', $altstr);
-				$title = $altstr;
-				*/
 				$altstr = convert_filename_alt_title($curimg2);
 				$title = $altstr;
 				
-				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"$altstr\"\n    title: \"$title\"\n";
+				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"photography portfolio for freelance photographer mark l chaves\"\n    title: \"$title\"\n";
 			}
 		} 
 		echo "</pre>\n";
