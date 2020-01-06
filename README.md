@@ -14,7 +14,7 @@ This is a work in progress.
 - Added Liquid support for Minimal Mistakes Jekyll theme.
 - Refactored to support converting filenames to alt and title tags.
 
-## Whishlist
+## Wish List
 
 - Create JavaScript version. 
 - Maybe create React JS version. 
