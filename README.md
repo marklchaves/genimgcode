@@ -10,6 +10,10 @@ This is a work in progress.
 
 ## Recent Modification History
 
+12 January 2020
+- Created index.html to support input/output paths and alt settings.
+- Created style.css.
+
 6 January 2020
 - Added Liquid support for Minimal Mistakes Jekyll theme.
 - Refactored to support converting filenames to alt and title tags.
@@ -18,7 +22,7 @@ This is a work in progress.
 
 - Create JavaScript version. 
 - Maybe create React JS version. 
-- Add admin interface to specify custom image directory, alt tag text, and title text.
+- Add admin interface to specify custom image directory, alt tag text, and title text. **DONE 12 JAN 2020**
 
 ## Current Output Formats
 
@@ -29,3 +33,8 @@ This is a work in progress.
 
 1. AMP Story
 2. Json
+
+<hr>
+
+## Example Output
+

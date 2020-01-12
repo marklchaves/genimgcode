@@ -1,0 +1,155 @@
+/* Normalise */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* General Styling */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial;
+  background-color: #111111;
+  color: white;
+}
+
+header {
+  margin: 2em 5em;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+p {
+  line-height: 2;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+  border-bottom: 2px solid #333333;
+}
+
+section {
+  width: 99%;
+  padding: 1px;
+}
+
+@media all and (min-width: 667px) {
+  section {
+    width: 55%;
+    padding: 3%;
+    margin: 1% auto;
+    border: 4px solid grey;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px grey;
+  }
+}
+
+/* Form Styling */
+
+fieldset {
+  border-radius: 15px;
+  margin: 1em 0;
+}
+
+legend {
+  font-size: 1.25rem;
+}
+
+/* Added From MDN */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#settings li + li {
+  margin-top: 1em;
+}
+
+label {
+  display: inline;
+}
+
+@media all and (min-width: 1024px) {
+  label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: inline-block;
+    min-width: 5rem;
+    width: 10rem;
+    text-align: right;
+    font-weight: 600;
+    padding-right: 1em;
+  }
+}
+
+input[type="text"],
+select,
+textarea {
+  /* To make sure that all text fields have the same font settings By default, textareas have a monospace font */
+  font: 1em sans-serif;
+  /* To give the same size to all text fields */
+  width: 60%;
+  box-sizing: border-box; /* To harmonize the look & feel of text field border */
+  border: 1px solid #999;
+}
+
+input#color {
+  width: 60px;
+}
+
+input:focus,
+textarea:focus {
+  /* To give a little highlight on active elements */
+  outline: none;
+  border: 1px solid #f05e35;
+}
+
+textarea {
+  /* To properly align multiline text fields with their labels */
+  vertical-align: top;
+  /* To give enough room to type some text */
+  height: 5em;
+}
+
+.button {
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 1% 2%;
+  margin-top: 1.5rem;
+  background-color: white;
+  border: 2px solid black;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+input:invalid {
+  background: pink;
+}

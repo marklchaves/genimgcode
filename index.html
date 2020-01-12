@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generate Img Code</title>
+    <link rel="stylesheet" href="genimgcode.css">
+</head>
+
+<body>
+
+    <header id="heading">
+        <h1>Generate Img Code</h1>
+    </header>
+    <section id="settings">
+        <form action="http://avada.local/genimgcode.php" method="post">
+            <fieldset>
+                <legend>Directory Paths</legend>
+                <ul>
+                    <li>
+                        <label for="directory">Source</label>
+                        <input type="text" id="directory" name="directory" value="wp-content/uploads/2020/01/" required>
+                    </li>
+                    <li>
+                        <label for="assets">Assets</label>
+                        <input type="text" id="assets" name="assets" value="/assets/images/" required>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>Meta Data</legend>
+                <ul>
+                    <li>
+                        <label for="alt">Alt</label>
+                        <input type="text" name="alt" value="Alt Text"><br>
+                    </li>
+                </ul>
+            </fieldset>
+            <input class="button" type="submit" value="Generate">
+        </form>
+    </section>
+
+</body>
+
+</html>

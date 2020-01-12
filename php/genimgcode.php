@@ -29,6 +29,11 @@ li{
 </head>
 
 <?php
+
+$dirname = (empty($_POST['directory'])) ? 'wp-content/uploads/2020/01/' : $_POST['directory'];
+
+$assetsdir = (empty($_POST['assets'])) ? '/assets/images/' : $_POST['assets'];
+
 function convert_filename_alt_title($str)
 { 
 	// Convert the filename to an alt and title.
@@ -37,7 +42,6 @@ function convert_filename_alt_title($str)
 	// Remove the file extension.
 	$altstr = preg_replace('"\.(jpg|jpeg|png|gif|svg)$"', '', $altstr);
 	return $altstr;
-
 }
 ?>
 
@@ -45,17 +49,16 @@ function convert_filename_alt_title($str)
 <section id="liquid">
 	<h2>Liquid Front Matter</h2>
 	<?php
-		$dirname2 = "wp-content/uploads/2020/01/";
-		$assetsdir = "/assets/images/bali/";
-		$images2 = scandir($dirname2);
+		$images2 = scandir($dirname); // To do: Error handling.
 		$ignore2 = array(".", "..");
 		echo "<pre>\n";
 		foreach($images2 as $curimg2){
 			if(!in_array($curimg2, $ignore2)) {
-				$altstr = convert_filename_alt_title($curimg2);
+				$altstr = (empty($_POST['alt'])) ? convert_filename_alt_title($curimg2) : $_POST['alt'];
 				$title = $altstr;
 				
-				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"photography portfolio for freelance photographer mark l chaves\"\n    title: \"$title\"\n";
+				/* Spaces here are important. */
+				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"$altstr\"\n    title: \"$title\"\n";
 			}
 		} 
 		echo "</pre>\n";
@@ -68,12 +71,10 @@ function convert_filename_alt_title($str)
 <p>View source to get HTML code.</p>
 <ul>
 	<?php
-		$dirname = "wp-content/uploads/2020/01/";
-		$images = scandir($dirname);
+		$images = scandir($dirname); // To do: Error handling.
 		$ignore = array(".", "..");
 		foreach($images as $curimg){
 			if(!in_array($curimg, $ignore)) {
-
 				$altstr = convert_filename_alt_title($curimg);
 				$title = $altstr;
 				echo "\n\t<li><a href=\"$dirname$curimg\"><img src='$dirname$curimg' alt='$altstr' title='$title' /></a></li>";
