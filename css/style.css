@@ -5,7 +5,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-html {
+ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -152,4 +152,14 @@ textarea {
 
 input:invalid {
   background: pink;
+}
+
+pre {
+	width: 100%;
+	background-color: lightslategray;
+	color: antiquewhite;
+	border: 1px solid darkblue;
+	border-radius: 15px;
+  padding: 1% 2% 2% 2%;
+  overflow-x: scroll;
 }
