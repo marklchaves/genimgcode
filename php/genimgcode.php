@@ -28,6 +28,7 @@ function convert_filename_alt_title($str)
 <body>
 	<header>
 		<h1>Generate Img Code</h1>
+		<p><a class="fancy-link" href="genimgcode.html">Settings</a></p>
 		<h2>The Code</h2>
 	</header>
 	<section id="liquid">
