@@ -33,15 +33,17 @@ function convert_filename_alt_title($str)
 	<section id="liquid">
 		<h2>Liquid Front Matter</h2>
 		<?php
-		$images2 = scandir($dirname); // To do: Error handling.
-		echo "<pre id='liquid-code'>\n";
-		foreach ($images2 as $curimg2) {
-			if (!in_array($curimg2, $ignore)) {
-				$altstr = (empty($_POST['alt'])) ? convert_filename_alt_title($curimg2) : $_POST['alt'];
-				$title = $altstr;
+		if (is_dir($dirname)) {
+			$images2 = scandir($dirname); // To do: Error handling.
+			echo "<pre id='liquid-code'>\n";
+			foreach ($images2 as $curimg2) {
+				if (!in_array($curimg2, $ignore)) {
+					$altstr = (empty($_POST['alt'])) ? convert_filename_alt_title($curimg2) : $_POST['alt'];
+					$title = $altstr;
 
-				/* Spaces here are important. */
-				echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"$altstr\"\n    title: \"$title\"";
+					/* Spaces here are important. */
+					echo "\n  - url: $assetsdir$curimg2\n    image_path: $assetsdir$curimg2\n    alt: \"$altstr\"\n    title: \"$title\"";
+				}
 			}
 		}
 		echo "</pre>\n";
@@ -53,14 +55,16 @@ function convert_filename_alt_title($str)
 	<section id="html">
 		<h2>HTML</h2>
 			<?php
-			$images = scandir($dirname); // To do: Error handling.
-			echo "<pre id='html-code'>\n";
-			foreach ($images as $curimg) {
-				if (!in_array($curimg, $ignore)) {
-					$altstr = (empty($_POST['alt'])) ? convert_filename_alt_title($curimg) : $_POST['alt'];
-					$title = $altstr;
-					$dispstr = htmlspecialchars("<a href=\"$dirname$curimg\">\n  <img src=\"$dirname$curimg\"\n  alt=\"$altstr\"\n  title=\"$title\"></a>", ENT_QUOTES);
-					echo "\n" . $dispstr;
+			if (is_dir($dirname)) {
+				$images = scandir($dirname); // To do: Error handling.
+				echo "<pre id='html-code'>\n";
+				foreach ($images as $curimg) {
+					if (!in_array($curimg, $ignore)) {
+						$altstr = (empty($_POST['alt'])) ? convert_filename_alt_title($curimg) : $_POST['alt'];
+						$title = $altstr;
+						$dispstr = htmlspecialchars("<a href=\"$dirname$curimg\">\n  <img src=\"$dirname$curimg\"\n  alt=\"$altstr\"\n  title=\"$title\"></a>", ENT_QUOTES);
+						echo "\n" . $dispstr;
+					}
 				}
 			}
 			echo "</pre>\n";
@@ -72,13 +76,19 @@ function convert_filename_alt_title($str)
 		<h2>Images</h2>
 		<ul>
 			<?php
-			$images = scandir($dirname); // To do: Error handling.
-			foreach ($images as $curimg) {
-				if (!in_array($curimg, $ignore)) {
-					$altstr = (empty($_POST['alt'])) ? convert_filename_alt_title($curimg) : $_POST['alt'];
-					$title = $altstr;
-					echo "\n\t<li><a href=\"$dirname$curimg\"><img src=\"$dirname$curimg\" alt=\"$altstr\" title=\"$title\" /></a></li>";
+			$img_width = '320px';
+			if (is_dir($dirname)) {
+				$images = scandir($dirname); // To do: Error handling.
+				foreach ($images as $curimg) {
+					if (!in_array($curimg, $ignore)) {
+						$altstr = (empty($_POST['alt'])) ? convert_filename_alt_title($curimg) : $_POST['alt'];
+						$title = $altstr;
+						echo "\n\t<li><a href=\"$dirname$curimg\"><img src=\"$dirname$curimg\" alt=\"$altstr\" title=\"$title\" width=\"$img_width\"/></a></li>";
+					}
 				}
+			}
+			else {
+				echo '<li><span class="error-text">Directory ' . $dirname . ' is empty or invalid.</span></li>';
 			}
 			echo "\n\n";
 			?>
