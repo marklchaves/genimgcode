@@ -41,5 +41,20 @@ This is a work in progress.
 
 <hr>
 
-## Example Output
+## Screen Captures
 
+### Settings Page
+
+![Settings Page](https://raw.githubusercontent.com/marklchaves/genimgcode/master/screen-captures/genimgcode-screen-capture-2020-02-08-at-3.11.56-PM.png)
+
+### Liquid
+
+![Liquid Front Matter](https://raw.githubusercontent.com/marklchaves/genimgcode/master/screen-captures/genimgcode-screen-capture-2020-02-08-at-3.10.55-PM.png)
+
+### HTML
+
+![HTML](https://raw.githubusercontent.com/marklchaves/genimgcode/master/screen-captures/genimgcode-screen-capture-2020-02-08-at-3.11.16-PM.png)
+
+### Image Previews
+
+![Image Previews](https://raw.githubusercontent.com/marklchaves/genimgcode/master/screen-captures/genimgcode-screen-capture-2020-02-08-at-3.11.36-PM.png)
