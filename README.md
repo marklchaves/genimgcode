@@ -10,6 +10,11 @@ This is a work in progress.
 
 ## Recent Modification History
 
+8 February 2020
+- Added error handling for valid but empty directory or directory with no images.
+- Now should process only image files.
+- Created dedicated directory for the code to live.
+
 12 January 2020
 - Created index.html to support input/output paths and alt settings.
 - Created style.css.
