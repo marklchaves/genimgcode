@@ -8,6 +8,13 @@ Based on [Gallery From Folder by David Carr](https://daveismyname.blog/creating-
 
 This is a work in progress.
 
+## Keywords
+
+- Liquid front matter generator
+- HTML image code generator
+- Markup generator
+- Liquid front matter
+
 ## Recent Modification History
 
 8 February 2020
